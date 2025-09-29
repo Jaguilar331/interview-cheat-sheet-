@@ -1,659 +1,652 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .search-box {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .about-section {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .about-section h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .about-section p {
+            line-height: 1.6;
+            color: #495057;
+        }
+        
+        .category {
+            margin-bottom: 30px;
+        }
+        
+        .category-header {
+            background: #667eea;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            margin-bottom: 10px;
+        }
+        
+        .category-header:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .category-header h2 {
+            font-size: 18px;
+        }
+        
+        .arrow {
+            transition: transform 0.3s;
+            font-size: 20px;
+        }
+        
+        .category-header.active .arrow {
+            transform: rotate(180deg);
+        }
+        
+        .story-list {
+            display: none;
+            padding: 10px 0;
+        }
+        
+        .story-list.active {
+            display: block;
+        }
+        
+        .story {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .story:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .story-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .story-title::before {
+            content: "★";
+            color: #ffc107;
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .story-section {
+            margin-bottom: 12px;
+        }
+        
+        .story-label {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .story-text {
+            color: #495057;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .glossary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .glossary h3 {
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+        }
+        
+        .glossary-item {
+            font-size: 13px;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .glossary-term {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .quick-reference {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .quick-reference h2 {
+            color: #856404;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .question-btn {
+            background: white;
+            border: 2px solid #ffc107;
+            padding: 12px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            color: #495057;
+            transition: all 0.2s;
+            text-align: left;
+        }
+        
+        .question-btn:hover {
+            background: #ffc107;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+        }
+        
+        @keyframes highlight {
+            0%, 100% { background: white; }
+            50% { background: #fff3cd; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Interview Cheat Sheet</h1>
+            <p>Quick reference for behavioral questions • Click to expand • Search to find</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search for examples (e.g., 'CTV', 'collaboration', 'pivot', 'data')...">
+        </div>
+        
+        <div class="content">
+            <div class="about-section">
+                <h2>About Me - Quick Intro</h2>
+                <p><strong>Based in NYC</strong> • Left Apple to join Cock & Tails (missed the team/healthcare vibe) • Started as TikTok Strategist, fell in love with marketing • Grew to Sr Marketing Strategist (helped drive 600M views in organic/paid) • Then Marketing Manager roles focusing on content, creative services, and strategy • At Exploding Kittens: overhauled entire marketing approach - expanded beyond search into OOH, CTV, affiliates • Shifted owned channels (SMS/Email) to be more profitable and drive LTV</p>
+            </div>
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>Interview Cheat Sheet</title>\
-    <style>\
-        * \{\
-            margin: 0;\
-            padding: 0;\
-            box-sizing: border-box;\
-        \}\
-        \
-        body \{\
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\
-            padding: 20px;\
-            min-height: 100vh;\
-        \}\
-        \
-        .container \{\
-            max-width: 1200px;\
-            margin: 0 auto;\
-            background: white;\
-            border-radius: 16px;\
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);\
-            overflow: hidden;\
-        \}\
-        \
-        .header \{\
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\
-            color: white;\
-            padding: 30px;\
-            text-align: center;\
-        \}\
-        \
-        .header h1 \{\
-            font-size: 28px;\
-            margin-bottom: 10px;\
-        \}\
-        \
-        .header p \{\
-            opacity: 0.9;\
-            font-size: 14px;\
-        \}\
-        \
-        .search-box \{\
-            padding: 20px 30px;\
-            background: #f8f9fa;\
-            border-bottom: 1px solid #e9ecef;\
-        \}\
-        \
-        .search-box input \{\
-            width: 100%;\
-            padding: 12px 20px;\
-            border: 2px solid #dee2e6;\
-            border-radius: 8px;\
-            font-size: 16px;\
-            transition: all 0.3s;\
-        \}\
-        \
-        .search-box input:focus \{\
-            outline: none;\
-            border-color: #667eea;\
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);\
-        \}\
-        \
-        .content \{\
-            padding: 30px;\
-        \}\
-        \
-        .about-section \{\
-            background: #e7f3ff;\
-            padding: 20px;\
-            border-radius: 8px;\
-            margin-bottom: 30px;\
-            border-left: 4px solid #667eea;\
-        \}\
-        \
-        .about-section h2 \{\
-            color: #667eea;\
-            margin-bottom: 10px;\
-            font-size: 20px;\
-        \}\
-        \
-        .about-section p \{\
-            line-height: 1.6;\
-            color: #495057;\
-        \}\
-        \
-        .category \{\
-            margin-bottom: 30px;\
-        \}\
-        \
-        .category-header \{\
-            background: #667eea;\
-            color: white;\
-            padding: 15px 20px;\
-            border-radius: 8px;\
-            cursor: pointer;\
-            display: flex;\
-            justify-content: space-between;\
-            align-items: center;\
-            transition: all 0.3s;\
-            margin-bottom: 10px;\
-        \}\
-        \
-        .category-header:hover \{\
-            background: #5568d3;\
-            transform: translateY(-2px);\
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);\
-        \}\
-        \
-        .category-header h2 \{\
-            font-size: 18px;\
-        \}\
-        \
-        .arrow \{\
-            transition: transform 0.3s;\
-            font-size: 20px;\
-        \}\
-        \
-        .category-header.active .arrow \{\
-            transform: rotate(180deg);\
-        \}\
-        \
-        .story-list \{\
-            display: none;\
-            padding: 10px 0;\
-        \}\
-        \
-        .story-list.active \{\
-            display: block;\
-        \}\
-        \
-        .story \{\
-            background: white;\
-            border: 2px solid #e9ecef;\
-            border-radius: 8px;\
-            padding: 20px;\
-            margin-bottom: 15px;\
-            transition: all 0.3s;\
-        \}\
-        \
-        .story:hover \{\
-            border-color: #667eea;\
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);\
-        \}\
-        \
-        .story-title \{\
-            font-size: 16px;\
-            font-weight: 600;\
-            color: #212529;\
-            margin-bottom: 12px;\
-            display: flex;\
-            align-items: center;\
-        \}\
-        \
-        .story-title::before \{\
-            content: "\uc0\u9733 ";\
-            color: #ffc107;\
-            margin-right: 8px;\
-            font-size: 18px;\
-        \}\
-        \
-        .story-section \{\
-            margin-bottom: 12px;\
-        \}\
-        \
-        .story-label \{\
-            font-weight: 600;\
-            color: #667eea;\
-            font-size: 13px;\
-            text-transform: uppercase;\
-            letter-spacing: 0.5px;\
-            margin-bottom: 4px;\
-        \}\
-        \
-        .story-text \{\
-            color: #495057;\
-            line-height: 1.6;\
-            font-size: 14px;\
-        \}\
-        \
-        .glossary \{\
-            background: #f8f9fa;\
-            padding: 20px;\
-            border-radius: 8px;\
-            margin-top: 30px;\
-        \}\
-        \
-        .glossary h3 \{\
-            color: #495057;\
-            margin-bottom: 15px;\
-        \}\
-        \
-        .glossary-grid \{\
-            display: grid;\
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));\
-            gap: 10px;\
-        \}\
-        \
-        .glossary-item \{\
-            font-size: 13px;\
-            padding: 8px;\
-            background: white;\
-            border-radius: 4px;\
-        \}\
-        \
-        .glossary-term \{\
-            font-weight: 600;\
-            color: #667eea;\
-        \}\
-        \
-        .quick-reference \{\
-            background: #fff3cd;\
-            padding: 20px;\
-            border-radius: 8px;\
-            margin-bottom: 30px;\
-            border-left: 4px solid #ffc107;\
-        \}\
-        \
-        .quick-reference h2 \{\
-            color: #856404;\
-            margin-bottom: 5px;\
-            font-size: 20px;\
-        \}\
-        \
-        .question-grid \{\
-            display: grid;\
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));\
-            gap: 10px;\
-            margin-top: 15px;\
-        \}\
-        \
-        .question-btn \{\
-            background: white;\
-            border: 2px solid #ffc107;\
-            padding: 12px 16px;\
-            border-radius: 6px;\
-            cursor: pointer;\
-            font-size: 13px;\
-            font-weight: 500;\
-            color: #495057;\
-            transition: all 0.2s;\
-            text-align: left;\
-        \}\
-        \
-        .question-btn:hover \{\
-            background: #ffc107;\
-            color: white;\
-            transform: translateY(-2px);\
-            box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);\
-        \}\
-        \
-        @keyframes highlight \{\
-            0%, 100% \{ background: white; \}\
-            50% \{ background: #fff3cd; \}\
-        \}\
-    </style>\
-</head>\
-<body>\
-    <div class="container">\
-        <div class="header">\
-            <h1>\uc0\u55356 \u57263  Interview Cheat Sheet</h1>\
-            <p>Quick reference for behavioral questions \'95 Click to expand \'95 Search to find</p>\
-        </div>\
-        \
-        <div class="search-box">\
-            <input type="text" id="searchInput" placeholder="\uc0\u55357 \u56589  Search for examples (e.g., 'CTV', 'collaboration', 'pivot', 'data')...">\
-        </div>\
-        \
-        <div class="content">\
-            <div class="about-section">\
-                <h2>About Me - Quick Intro</h2>\
-                <p><strong>Based in NYC</strong> \'95 Left Apple to join Cock & Tails (missed the team/healthcare vibe) \'95 Started as TikTok Strategist, fell in love with marketing \'95 Grew to Sr Marketing Strategist (helped drive 600M views in organic/paid) \'95 Then Marketing Manager roles focusing on content, creative services, and strategy \'95 At Exploding Kittens: overhauled entire marketing approach - expanded beyond search into OOH, CTV, affiliates \'95 Shifted owned channels (SMS/Email) to be more profitable and drive LTV</p>\
-            </div>\
-\
-            <div class="quick-reference">\
-                <h2>\uc0\u9889  Quick Question Finder</h2>\
-                <p style="font-size: 13px; color: #6c757d; margin-bottom: 15px;">Click any question to jump directly to the best example</p>\
-                <div class="question-grid">\
-                    <button class="question-btn" onclick="jumpToStory('growth-strategy')">Tell me about building a strategy from scratch</button>\
-                    <button class="question-btn" onclick="jumpToStory('tableau-attribution')">How do you measure marketing effectiveness?</button>\
-                    <button class="question-btn" onclick="jumpToStory('ctv-easter')">Tell me about testing a new channel</button>\
-                    <button class="question-btn" onclick="jumpToStory('lost-cat')">Time you had to pivot quickly</button>\
-                    <button class="question-btn" onclick="jumpToStory('game-name')">Influence without authority</button>\
-                    <button class="question-btn" onclick="jumpToStory('executive-storytelling')">How do you communicate with executives?</button>\
-                    <button class="question-btn" onclick="jumpToStory('creative-checklist')">How do you build systems/processes?</button>\
-                    <button class="question-btn" onclick="jumpToStory('sizzle-reel')">Tell me about managing a project</button>\
-                    <button class="question-btn" onclick="jumpToStory('survivor-ctv')">Upper-funnel marketing example</button>\
-                    <button class="question-btn" onclick="jumpToStory('cohort-analysis')">How do you segment customers?</button>\
-                    <button class="question-btn" onclick="jumpToStory('beyond-google')">Expanding into new platforms</button>\
-                </div>\
-            </div>\
-\
-            <div class="category">\
-                <div class="category-header">\
-                    <h2>\uc0\u55357 \u56522  Data & Analytics</h2>\
-                    <span class="arrow">\uc0\u9660 </span>\
-                </div>\
-                <div class="story-list">\
-                    <div class="story" id="growth-strategy" data-keywords="growth strategy forecasting baseline testing framework metrics CTV influencer scaling">\
-                        <div class="story-title">Growth Strategy & Forecasting Framework</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">Joined Exploding Kittens with stagnant social + paid ads. No CTV, no OOH, little data infrastructure. Had to build process from scratch.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Task</div>\
-                            <div class="story-text">In first 90 days \uc0\u8594  run rapid tests, tie every initiative to measurable results. Set baselines: daily sales as control. Define success metrics: CPV, CAC, margin thresholds.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Built framework for scaling. Example: Influencer Campaign (bottom funnel) - If efficiency metrics met (ex: $0.02 CPV) \uc0\u8594  scale. If not \u8594  pivot. Expanded into new top-of-funnel channels (Pinterest, CTV - leaning into awareness). Aligned campaigns with retail moments (seasonality, holidays).</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">600M organic views. CTV ads with 10% lift. Made channels more profitable. Built trusted, repeatable system tied to business goals.</div>\
-                        </div>\
-                    </div>\
-\
-                    <div class="story" id="tableau-attribution" data-keywords="tableau attribution measurement correlation causation checklist analytics sales lift">\
-                        <div class="story-title">Tableau Attribution & Measurement System</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">Tableau became my go-to for analysis. Worked with junior paid strategist. Saw correlation between digital ads + sales lift... but correlation \uc0\u8800  causation.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Built checklist for attribution before crediting lifts: Check in-store factors (price cuts, end-caps). Check other content (organic, viral) and delayed top-of-funnel activations. Consider natural retail patterns (weekend lifts). Work with sales team for non-visible items. Use Tableau to layer these factors + isolate true drivers.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Measured results more accurately. Confirmed which campaigns really drove incremental growth. Refined strategy \uc0\u8594  focused budget on channels/tactics with real impact.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Reflection</div>\
-                            <div class="story-text">Moved from correlation guessing to reliable attribution model. Gave leadership confidence with fact-based reporting. Allowed us to scale strategies with trust.</div>\
-                        </div>\
-                    </div>\
-\
-                    <div class="story" id="cohort-analysis" data-keywords="cohort payback email viral CRM LTV retention acquisition AOV">\
-                        <div class="story-title">Cohort Analysis - Email vs Viral</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">At Exploding Kittens, wanted to understand how different cohorts behaved. Compared email cohort (CRM buyers) vs viral cohort (buyers after TikTok spikes).</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Email cohort = customers who already converted (checkout or free gift sign-up). Goal = expand LTV through launches + cross-sells. Viral cohort = new buyers from awareness/FOMO spikes. Goal = acquisition, more novelty-driven.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Email cohort = lower incremental cost to activate (we already owned the channel), more consistent repeat behavior. Viral cohort = higher first AOV but weaker repeat rates.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Takeaway</div>\
-                            <div class="story-text">Treat viral cohorts as acquisition drivers, email cohorts as retention + LTV expansion drivers. At Relatable, email wasn't really used this way - missed opportunity that reshaped my CRM approach.</div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-\
-            <div class="category">\
-                <div class="category-header">\
-                    <h2>\uc0\u55357 \u56960  Channel Expansion & Testing</h2>\
-                    <span class="arrow">\uc0\u9660 </span>\
-                </div>\
-                <div class="story-list">\
-                    <div class="story" id="ctv-easter" data-keywords="CTV channel expansion testing Easter seasonal lift control geo holdout">\
-                        <div class="story-title">CTV Easter Test - Channel Diversification</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">At EK, tried influencer campaign \uc0\u8594  didn't hit pre-set metrics like CPV or lift targets. Pivoted to test CTV for kids' game "Hurry Up, Chicken Butt."</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Ran test during Easter period. Tailored campaign to families. Ran 2-week CTV spot. Used UK as geo holdout for comparison (treated as control).</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">US sales = 10% lift YoY vs UK holdout. Clear proof CTV drove incremental seasonal sales. Scaled with 2x-3x budget increase, close monitoring. Now pushing across YouTube as well.</div>\
-                        </div>\
-                    </div>\
-\
-                    <div class="story" id="survivor-ctv" data-keywords="survivor upper funnel CBS Jeff Probst awareness frequency partnership TV">\
-                        <div class="story-title">Survivor CTV Partnership - Upper Funnel</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">Launched official Survivor game, needed to capture superfans and casual family viewers of reality TV. Wanted upper-funnel activation tied to show's audience.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Partnered with CBS to have Jeff Probst promote game in commercial interstitials during season. Frequency naturally limited to one exposure every couple weeks (accepted going in). Set sales baseline and tracked results on Amazon and retail.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Every time interstitial ran \uc0\u8594  clear, immediate sales lift. Amazon captured majority of spike. Since it was only marketing effort outside season, attribution was very clean. Proved limited, upper-funnel exposure drove measurable incremental sales.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Reflection</div>\
-                            <div class="story-text">Learned frequency management looks different depending on context. Not about multiple touchpoints - about single, high-impact placement.</div>\
-                        </div>\
-                    </div>\
-\
-                    <div class="story" id="beyond-google" data-keywords="SEO search Pinterest TikTok Reddit Amazon discovery platforms optimization">\
-                        <div class="story-title">Beyond Google SEO - Multi-Platform Search</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">At Exploding Kittens, realized search isn't just Google anymore. Customers actively looking for games on TikTok Shop, Pinterest, Reddit, Amazon, SlickDeals. Wanted to integrate these into growth stack to meet customers where they're searching.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Testing across platforms with clear metrics: Pinterest \uc0\u8594  pins, saves, seasonal search spikes. Reddit \u8594  upvotes, comments, authentic thread engagement. Amazon \u8594  conversion rates and CTR for sponsored placements. TikTok Shop \u8594  discovery metrics. Tailored content to fit how people search on each platform.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Early results show when we align creative to how people naturally search, discoverability improves significantly.</div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-\
-            <div class="category">\
-                <div class="category-header">\
-                    <h2>\uc0\u55356 \u57256  Adaptability & Problem Solving</h2>\
-                    <span class="arrow">\uc0\u9660 </span>\
-                </div>\
-                <div class="story-list">\
-                    <div class="story" id="lost-cat" data-keywords="pivot budget cut OOH lost cat creative adaptability constraints digital">\
-                        <div class="story-title">Lost Cat Pivot - Adaptability Under Constraints</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">Planned nationwide "Lost Cat" poster OOH campaign to test awareness. Budget cut almost completely last minute due to tariff impacts. Needed to pivot quickly without losing creative momentum.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Adapted idea into digital channels (social + email), focusing on testing creative interest at much lower/non-existent spend.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Digital campaign gained strong engagement. Created proof to re-pitch for larger rollout later.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Reflection</div>\
-                            <div class="story-text">Had to be adaptable under budget constraints. Learned value of testing big ideas at smaller scale first. Reinforced ability to balance creativity with ROI focus.</div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-\
-            <div class="category">\
-                <div class="category-header">\
-                    <h2>\uc0\u55358 \u56605  Leadership & Influence</h2>\
-                    <span class="arrow">\uc0\u9660 </span>\
-                </div>\
-                <div class="story-list">\
-                    <div class="story" id="game-name" data-keywords="influence collaboration cross-functional product naming SEO retail packaging">\
-                        <div class="story-title">Game Name Change - Influencing Without Authority</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">At Exploding Kittens, many games had long, quirky names. Fun creatively, but became SEO challenges and didn't compete well on crowded retail shelves. Small and crowded names. I didn't own naming - that was product and design - but saw growth opportunity.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Researched competitor packaging/names in retail (shorter, punchier, giftable). Shared how naming affected discoverability (SEO) and impulse buys (shelf). Encouraged us to survey audience/core demographic to get concrete read on preferences. Most important: divorce ourselves from thinking "we = target consumer." I lean into biases not based on what's optimal.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Changed a few titles and it's now general strategy going forward.</div>\
-                        </div>\
-                    </div>\
-\
-                    <div class="story" id="executive-storytelling" data-keywords="communication executive storytelling ROI leadership trust jargon sales data">\
-                        <div class="story-title">Executive Storytelling - Building Trust</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">Exploding Kittens struggled 9-10 years to market games beyond core fans. Multiple agencies failed to tie marketing to ROI or sales data. Execs were skeptical, had little marketing knowledge, distrusted jargon.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Built narratives that stripped out jargon and fluff, focusing only on business case. Framed marketing in terms of costs, lifts, and ROI instead of just impressions or engagement. Connected initiatives like CTV, affiliates, and email to actual sales outcomes.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Shifted C-suite perspective: they now see marketing as measurable, scalable, tied directly to growth. Leadership pivoted from "vibes-driven" to data-driven decision-making. Marketing gained more trust and resources because execs could connect spend to sales.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Reflection</div>\
-                            <div class="story-text">Learned it's about translating complexity into clarity. Success = showing the forest, not just the trees - big business wins, not isolated metrics. Built lasting trust with leadership who now see marketing as growth driver, not cost center.</div>\
-                        </div>\
-                    </div>\
-\
-                    <div class="story" id="creative-checklist" data-keywords="leadership creative checklist system evaluation ROI process training team">\
-                        <div class="story-title">Creative Evaluation Checklist</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">At Exploding Kittens, teams judged creative success inconsistently. Wins based on "vibes" (virality, engagement) vs real business outcomes.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Built checklist system for evaluating creative across channels: CTV, email, viral posts, influencer campaigns, YouTube Kids. Checklist covered: baseline sales, isolated lift, KPI alignment (CPV & margins). Trained team to apply it before calling any marketing pushes a "win."</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Shifted org from subjective wins \uc0\u8594  ROI-based evaluation. Scaled only creative/activations tied to growth. Leadership gained confidence because results were consistent and repeatable.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Reflection</div>\
-                            <div class="story-text">Learned durable systems don't always mean dashboards - can be simple, repeatable processes. Checklist created shared language for creative performance across org.</div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-\
-            <div class="category">\
-                <div class="category-header">\
-                    <h2>\uc0\u55357 \u56523  Project Management</h2>\
-                    <span class="arrow">\uc0\u9660 </span>\
-                </div>\
-                <div class="story-list">\
-                    <div class="story" id="sizzle-reel" data-keywords="project management DRI sizzle reel execution timeline deliverables international">\
-                        <div class="story-title">Sizzle Reel Production - Clear Ownership</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Situation</div>\
-                            <div class="story-text">At Exploding Kittens, international distributors often request sizzle reels in batches of 6-8 to pitch games to their markets. Projects tended to "sneak up" because we didn't know their pitch timelines. Before I joined, deadlines were often missed and reels weren't strong sales tools.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Action</div>\
-                            <div class="story-text">Mapped production plan to ensure no bottlenecks: Copywriter \uc0\u8594  scripting, Social strategist \u8594  filming, Contractor \u8594  editing, Me \u8594  approvals, Marketing coordinator \u8594  deployment. Set clear DRIs (Directly Responsible Individuals) for each step, built in check-ins, flagged risks like evolving game art/mechanics. Ran post-mortems after each batch to refine timelines and processes.</div>\
-                        </div>\
-                        <div class="story-section">\
-                            <div class="story-label">Result</div>\
-                            <div class="story-text">Went from missing deadlines to consistently hitting them, even under tight timelines. Reels improved dramatically - using experience from PDPs and CTV, shifted creative toward FOMO-driven, clear explanations that made buyers want to pick up games, even with lower production budgets.</div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-\
-            <div class="category">\
-                <div class="category-header">\
-                    <h2>\uc0\u55357 \u56421  Customer-Centric Approach</h2>\
-                    <span class="arrow">\uc0\u9660 </span>\
-                </div>\
-                <div class="story-list">\
-                    <div class="story" data-keywords="customer surveys feedback audience research rules engagement">\
-                        <div class="story-title">Customer-Centric Mindset</div>\
-                        <div class="story-section">\
-                            <div class="story-label">Approach</div>\
-                            <div class="story-text">Actively look for feedback from audience in surveys. Stay tuned into what's working and what's not - for example, game rules clarity. Always testing and iterating based on real customer behavior and preferences.</div>\
-                        </div>\
-                    </div>\
-                </div>\
-            </div>\
-\
-            <div class="glossary">\
-                <h3>\uc0\u55357 \u56534  Quick Glossary</h3>\
-                <div class="glossary-grid">\
-                    <div class="glossary-item"><span class="glossary-term">CAC:</span> Customer Acquisition Cost (marketing spend \'f7 new customers)</div>\
-                    <div class="glossary-item"><span class="glossary-term">Cohort:</span> Group of customers with shared trait (signup date, channel)</div>\
-                    <div class="glossary-item"><span class="glossary-term">CRM:</span> Customer Relationship Management (email/SMS systems)</div>\
-                    <div class="glossary-item"><span class="glossary-term">DRI:</span> Directly Responsible Individual (one person accountable)</div>\
-                    <div class="glossary-item"><span class="glossary-term">Geo holdouts:</span> Control regions where campaigns don't run (to measure lift)</div>\
-                    <div class="glossary-item"><span class="glossary-term">Incrementality:</span> Experiments showing true added impact vs control</div>\
-                    <div class="glossary-item"><span class="glossary-term">LTV:</span> Lifetime Value of customer</div>\
-                    <div class="glossary-item"><span class="glossary-term">CPV:</span> Cost Per View</div>\
-                    <div class="glossary-item"><span class="glossary-term">AOV:</span> Average Order Value</div>\
-                </div>\
-            </div>\
-\
-            <div class="about-section" style="margin-top: 30px;">\
-                <h2>Why Leaving Exploding Kittens?</h2>\
-                <p><strong>Passion alignment:</strong> Love their products, but my personal interests align more with Relatable - passionate about pop culture and staying on top of latest trends. <strong>Team & growth:</strong> I'm the only marketing manager at EK, and our VP of Marketing is new to the field, so a lot falls on me. Looking for environment to collaborate with experienced marketers who can help me grow. I know from working at Relatable previously that it's exactly that place. I've learned so much, but ready for the next challenge.</p>\
-            </div>\
-        </div>\
-    </div>\
-\
-    <script>\
-        document.addEventListener('DOMContentLoaded', function() \{\
-            const categoryHeaders = document.querySelectorAll('.category-header');\
-            const searchInput = document.getElementById('searchInput');\
-            const stories = document.querySelectorAll('.story');\
-            const categories = document.querySelectorAll('.category');\
-\
-            categoryHeaders.forEach(header => \{\
-                header.addEventListener('click', function() \{\
-                    const storyList = this.nextElementSibling;\
-                    const isActive = this.classList.contains('active');\
-                    \
-                    categoryHeaders.forEach(h => h.classList.remove('active'));\
-                    document.querySelectorAll('.story-list').forEach(l => l.classList.remove('active'));\
-                    \
-                    if (!isActive) \{\
-                        this.classList.add('active');\
-                        storyList.classList.add('active');\
-                    \}\
-                \});\
-            \});\
-\
-            searchInput.addEventListener('input', function(e) \{\
-                const searchTerm = e.target.value.toLowerCase();\
-\
-                categories.forEach(category => \{\
-                    let categoryHasMatch = false;\
-                    const categoryStories = category.querySelectorAll('.story');\
-                    \
-                    categoryStories.forEach(story => \{\
-                        const keywords = story.getAttribute('data-keywords') || '';\
-                        const text = story.textContent.toLowerCase();\
-                        \
-                        if (searchTerm === '' || keywords.includes(searchTerm) || text.includes(searchTerm)) \{\
-                            story.style.display = 'block';\
-                            categoryHasMatch = true;\
-                        \} else \{\
-                            story.style.display = 'none';\
-                        \}\
-                    \});\
-\
-                    if (searchTerm && categoryHasMatch) \{\
-                        category.querySelector('.category-header').classList.add('active');\
-                        category.querySelector('.story-list').classList.add('active');\
-                    \} else if (!searchTerm) \{\
-                        category.querySelector('.category-header').classList.remove('active');\
-                        category.querySelector('.story-list').classList.remove('active');\
-                    \}\
-                \});\
-            \});\
-            \
-            window.jumpToStory = function(storyId) \{\
-                const story = document.getElementById(storyId);\
-                if (story) \{\
-                    const category = story.closest('.category');\
-                    const header = category.querySelector('.category-header');\
-                    const storyList = category.querySelector('.story-list');\
-                    \
-                    categoryHeaders.forEach(h => h.classList.remove('active'));\
-                    document.querySelectorAll('.story-list').forEach(l => l.classList.remove('active'));\
-                    \
-                    header.classList.add('active');\
-                    storyList.classList.add('active');\
-                    \
-                    setTimeout(() => \{\
-                        story.scrollIntoView(\{ behavior: 'smooth', block: 'center' \});\
-                        story.style.animation = 'highlight 1s ease-in-out';\
-                    \}, 100);\
-                \}\
-            \};\
-        \});\
-    </script>\
-</body>\
-</html>}
+            <div class="quick-reference">
+                <h2>⚡ Quick Question Finder</h2>
+                <p style="font-size: 13px; color: #6c757d; margin-bottom: 15px;">Click any question to jump directly to the best example</p>
+                <div class="question-grid">
+                    <button class="question-btn" onclick="jumpToStory('growth-strategy')">Tell me about building a strategy from scratch</button>
+                    <button class="question-btn" onclick="jumpToStory('tableau-attribution')">How do you measure marketing effectiveness?</button>
+                    <button class="question-btn" onclick="jumpToStory('ctv-easter')">Tell me about testing a new channel</button>
+                    <button class="question-btn" onclick="jumpToStory('lost-cat')">Time you had to pivot quickly</button>
+                    <button class="question-btn" onclick="jumpToStory('game-name')">Influence without authority</button>
+                    <button class="question-btn" onclick="jumpToStory('executive-storytelling')">How do you communicate with executives?</button>
+                    <button class="question-btn" onclick="jumpToStory('creative-checklist')">How do you build systems/processes?</button>
+                    <button class="question-btn" onclick="jumpToStory('sizzle-reel')">Tell me about managing a project</button>
+                    <button class="question-btn" onclick="jumpToStory('survivor-ctv')">Upper-funnel marketing example</button>
+                    <button class="question-btn" onclick="jumpToStory('cohort-analysis')">How do you segment customers?</button>
+                    <button class="question-btn" onclick="jumpToStory('beyond-google')">Expanding into new platforms</button>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    <h2>📊 Data & Analytics</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="story-list">
+                    <div class="story" id="growth-strategy" data-keywords="growth strategy forecasting baseline testing framework metrics CTV influencer scaling">
+                        <div class="story-title">Growth Strategy & Forecasting Framework</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">Joined Exploding Kittens with stagnant social + paid ads. No CTV, no OOH, little data infrastructure. Had to build process from scratch.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Task</div>
+                            <div class="story-text">In first 90 days → run rapid tests, tie every initiative to measurable results. Set baselines: daily sales as control. Define success metrics: CPV, CAC, margin thresholds.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Built framework for scaling. Example: Influencer Campaign (bottom funnel) - If efficiency metrics met (ex: $0.02 CPV) → scale. If not → pivot. Expanded into new top-of-funnel channels (Pinterest, CTV - leaning into awareness). Aligned campaigns with retail moments (seasonality, holidays).</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">600M organic views. CTV ads with 10% lift. Made channels more profitable. Built trusted, repeatable system tied to business goals.</div>
+                        </div>
+                    </div>
+
+                    <div class="story" id="tableau-attribution" data-keywords="tableau attribution measurement correlation causation checklist analytics sales lift">
+                        <div class="story-title">Tableau Attribution & Measurement System</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">Tableau became my go-to for analysis. Worked with junior paid strategist. Saw correlation between digital ads + sales lift... but correlation ≠ causation.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Built checklist for attribution before crediting lifts: Check in-store factors (price cuts, end-caps). Check other content (organic, viral) and delayed top-of-funnel activations. Consider natural retail patterns (weekend lifts). Work with sales team for non-visible items. Use Tableau to layer these factors + isolate true drivers.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Measured results more accurately. Confirmed which campaigns really drove incremental growth. Refined strategy → focused budget on channels/tactics with real impact.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Reflection</div>
+                            <div class="story-text">Moved from correlation guessing to reliable attribution model. Gave leadership confidence with fact-based reporting. Allowed us to scale strategies with trust.</div>
+                        </div>
+                    </div>
+
+                    <div class="story" id="cohort-analysis" data-keywords="cohort payback email viral CRM LTV retention acquisition AOV">
+                        <div class="story-title">Cohort Analysis - Email vs Viral</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">At Exploding Kittens, wanted to understand how different cohorts behaved. Compared email cohort (CRM buyers) vs viral cohort (buyers after TikTok spikes).</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Email cohort = customers who already converted (checkout or free gift sign-up). Goal = expand LTV through launches + cross-sells. Viral cohort = new buyers from awareness/FOMO spikes. Goal = acquisition, more novelty-driven.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Email cohort = lower incremental cost to activate (we already owned the channel), more consistent repeat behavior. Viral cohort = higher first AOV but weaker repeat rates.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Takeaway</div>
+                            <div class="story-text">Treat viral cohorts as acquisition drivers, email cohorts as retention + LTV expansion drivers. At Relatable, email wasn't really used this way - missed opportunity that reshaped my CRM approach.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    <h2>🚀 Channel Expansion & Testing</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="story-list">
+                    <div class="story" id="ctv-easter" data-keywords="CTV channel expansion testing Easter seasonal lift control geo holdout">
+                        <div class="story-title">CTV Easter Test - Channel Diversification</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">At EK, tried influencer campaign → didn't hit pre-set metrics like CPV or lift targets. Pivoted to test CTV for kids' game "Hurry Up, Chicken Butt."</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Ran test during Easter period. Tailored campaign to families. Ran 2-week CTV spot. Used UK as geo holdout for comparison (treated as control).</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">US sales = 10% lift YoY vs UK holdout. Clear proof CTV drove incremental seasonal sales. Scaled with 2x-3x budget increase, close monitoring. Now pushing across YouTube as well.</div>
+                        </div>
+                    </div>
+
+                    <div class="story" id="survivor-ctv" data-keywords="survivor upper funnel CBS Jeff Probst awareness frequency partnership TV">
+                        <div class="story-title">Survivor CTV Partnership - Upper Funnel</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">Launched official Survivor game, needed to capture superfans and casual family viewers of reality TV. Wanted upper-funnel activation tied to show's audience.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Partnered with CBS to have Jeff Probst promote game in commercial interstitials during season. Frequency naturally limited to one exposure every couple weeks (accepted going in). Set sales baseline and tracked results on Amazon and retail.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Every time interstitial ran → clear, immediate sales lift. Amazon captured majority of spike. Since it was only marketing effort outside season, attribution was very clean. Proved limited, upper-funnel exposure drove measurable incremental sales.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Reflection</div>
+                            <div class="story-text">Learned frequency management looks different depending on context. Not about multiple touchpoints - about single, high-impact placement.</div>
+                        </div>
+                    </div>
+
+                    <div class="story" id="beyond-google" data-keywords="SEO search Pinterest TikTok Reddit Amazon discovery platforms optimization">
+                        <div class="story-title">Beyond Google SEO - Multi-Platform Search</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">At Exploding Kittens, realized search isn't just Google anymore. Customers actively looking for games on TikTok Shop, Pinterest, Reddit, Amazon, SlickDeals. Wanted to integrate these into growth stack to meet customers where they're searching.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Testing across platforms with clear metrics: Pinterest → pins, saves, seasonal search spikes. Reddit → upvotes, comments, authentic thread engagement. Amazon → conversion rates and CTR for sponsored placements. TikTok Shop → discovery metrics. Tailored content to fit how people search on each platform.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Early results show when we align creative to how people naturally search, discoverability improves significantly.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    <h2>🎨 Adaptability & Problem Solving</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="story-list">
+                    <div class="story" id="lost-cat" data-keywords="pivot budget cut OOH lost cat creative adaptability constraints digital">
+                        <div class="story-title">Lost Cat Pivot - Adaptability Under Constraints</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">Planned nationwide "Lost Cat" poster OOH campaign to test awareness. Budget cut almost completely last minute due to tariff impacts. Needed to pivot quickly without losing creative momentum.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Adapted idea into digital channels (social + email), focusing on testing creative interest at much lower/non-existent spend.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Digital campaign gained strong engagement. Created proof to re-pitch for larger rollout later.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Reflection</div>
+                            <div class="story-text">Had to be adaptable under budget constraints. Learned value of testing big ideas at smaller scale first. Reinforced ability to balance creativity with ROI focus.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    <h2>🤝 Leadership & Influence</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="story-list">
+                    <div class="story" id="game-name" data-keywords="influence collaboration cross-functional product naming SEO retail packaging">
+                        <div class="story-title">Game Name Change - Influencing Without Authority</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">At Exploding Kittens, many games had long, quirky names. Fun creatively, but became SEO challenges and didn't compete well on crowded retail shelves. Small and crowded names. I didn't own naming - that was product and design - but saw growth opportunity.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Researched competitor packaging/names in retail (shorter, punchier, giftable). Shared how naming affected discoverability (SEO) and impulse buys (shelf). Encouraged us to survey audience/core demographic to get concrete read on preferences. Most important: divorce ourselves from thinking "we = target consumer." I lean into biases not based on what's optimal.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Changed a few titles and it's now general strategy going forward.</div>
+                        </div>
+                    </div>
+
+                    <div class="story" id="executive-storytelling" data-keywords="communication executive storytelling ROI leadership trust jargon sales data">
+                        <div class="story-title">Executive Storytelling - Building Trust</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">Exploding Kittens struggled 9-10 years to market games beyond core fans. Multiple agencies failed to tie marketing to ROI or sales data. Execs were skeptical, had little marketing knowledge, distrusted jargon.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Built narratives that stripped out jargon and fluff, focusing only on business case. Framed marketing in terms of costs, lifts, and ROI instead of just impressions or engagement. Connected initiatives like CTV, affiliates, and email to actual sales outcomes.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Shifted C-suite perspective: they now see marketing as measurable, scalable, tied directly to growth. Leadership pivoted from "vibes-driven" to data-driven decision-making. Marketing gained more trust and resources because execs could connect spend to sales.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Reflection</div>
+                            <div class="story-text">Learned it's about translating complexity into clarity. Success = showing the forest, not just the trees - big business wins, not isolated metrics. Built lasting trust with leadership who now see marketing as growth driver, not cost center.</div>
+                        </div>
+                    </div>
+
+                    <div class="story" id="creative-checklist" data-keywords="leadership creative checklist system evaluation ROI process training team">
+                        <div class="story-title">Creative Evaluation Checklist</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">At Exploding Kittens, teams judged creative success inconsistently. Wins based on "vibes" (virality, engagement) vs real business outcomes.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Built checklist system for evaluating creative across channels: CTV, email, viral posts, influencer campaigns, YouTube Kids. Checklist covered: baseline sales, isolated lift, KPI alignment (CPV & margins). Trained team to apply it before calling any marketing pushes a "win."</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Shifted org from subjective wins → ROI-based evaluation. Scaled only creative/activations tied to growth. Leadership gained confidence because results were consistent and repeatable.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Reflection</div>
+                            <div class="story-text">Learned durable systems don't always mean dashboards - can be simple, repeatable processes. Checklist created shared language for creative performance across org.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    <h2>📋 Project Management</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="story-list">
+                    <div class="story" id="sizzle-reel" data-keywords="project management DRI sizzle reel execution timeline deliverables international">
+                        <div class="story-title">Sizzle Reel Production - Clear Ownership</div>
+                        <div class="story-section">
+                            <div class="story-label">Situation</div>
+                            <div class="story-text">At Exploding Kittens, international distributors often request sizzle reels in batches of 6-8 to pitch games to their markets. Projects tended to "sneak up" because we didn't know their pitch timelines. Before I joined, deadlines were often missed and reels weren't strong sales tools.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Action</div>
+                            <div class="story-text">Mapped production plan to ensure no bottlenecks: Copywriter → scripting, Social strategist → filming, Contractor → editing, Me → approvals, Marketing coordinator → deployment. Set clear DRIs (Directly Responsible Individuals) for each step, built in check-ins, flagged risks like evolving game art/mechanics. Ran post-mortems after each batch to refine timelines and processes.</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-label">Result</div>
+                            <div class="story-text">Went from missing deadlines to consistently hitting them, even under tight timelines. Reels improved dramatically - using experience from PDPs and CTV, shifted creative toward FOMO-driven, clear explanations that made buyers want to pick up games, even with lower production budgets.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    <h2>👥 Customer-Centric Approach</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="story-list">
+                    <div class="story" data-keywords="customer surveys feedback audience research rules engagement">
+                        <div class="story-title">Customer-Centric Mindset</div>
+                        <div class="story-section">
+                            <div class="story-label">Approach</div>
+                            <div class="story-text">Actively look for feedback from audience in surveys. Stay tuned into what's working and what's not - for example, game rules clarity. Always testing and iterating based on real customer behavior and preferences.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glossary">
+                <h3>📖 Quick Glossary</h3>
+                <div class="glossary-grid">
+                    <div class="glossary-item"><span class="glossary-term">CAC:</span> Customer Acquisition Cost (marketing spend ÷ new customers)</div>
+                    <div class="glossary-item"><span class="glossary-term">Cohort:</span> Group of customers with shared trait (signup date, channel)</div>
+                    <div class="glossary-item"><span class="glossary-term">CRM:</span> Customer Relationship Management (email/SMS systems)</div>
+                    <div class="glossary-item"><span class="glossary-term">DRI:</span> Directly Responsible Individual (one person accountable)</div>
+                    <div class="glossary-item"><span class="glossary-term">Geo holdouts:</span> Control regions where campaigns don't run (to measure lift)</div>
+                    <div class="glossary-item"><span class="glossary-term">Incrementality:</span> Experiments showing true added impact vs control</div>
+                    <div class="glossary-item"><span class="glossary-term">LTV:</span> Lifetime Value of customer</div>
+                    <div class="glossary-item"><span class="glossary-term">CPV:</span> Cost Per View</div>
+                    <div class="glossary-item"><span class="glossary-term">AOV:</span> Average Order Value</div>
+                </div>
+            </div>
+
+            <div class="about-section" style="margin-top: 30px;">
+                <h2>Why Leaving Exploding Kittens?</h2>
+                <p><strong>Passion alignment:</strong> Love their products, but my personal interests align more with Relatable - passionate about pop culture and staying on top of latest trends. <strong>Team & growth:</strong> I'm the only marketing manager at EK, and our VP of Marketing is new to the field, so a lot falls on me. Looking for environment to collaborate with experienced marketers who can help me grow. I know from working at Relatable previously that it's exactly that place. I've learned so much, but ready for the next challenge.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryHeaders = document.querySelectorAll('.category-header');
+            const searchInput = document.getElementById('searchInput');
+            const stories = document.querySelectorAll('.story');
+            const categories = document.querySelectorAll('.category');
+
+            categoryHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const storyList = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    categoryHeaders.forEach(h => h.classList.remove('active'));
+                    document.querySelectorAll('.story-list').forEach(l => l.classList.remove('active'));
+                    
+                    if (!isActive) {
+                        this.classList.add('active');
+                        storyList.classList.add('active');
+                    }
+                });
+            });
+
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+
+                categories.forEach(category => {
+                    let categoryHasMatch = false;
+                    const categoryStories = category.querySelectorAll('.story');
+                    
+                    categoryStories.forEach(story => {
+                        const keywords = story.getAttribute('data-keywords') || '';
+                        const text = story.textContent.toLowerCase();
+                        
+                        if (searchTerm === '' || keywords.includes(searchTerm) || text.includes(searchTerm)) {
+                            story.style.display = 'block';
+                            categoryHasMatch = true;
+                        } else {
+                            story.style.display = 'none';
+                        }
+                    });
+
+                    if (searchTerm && categoryHasMatch) {
+                        category.querySelector('.category-header').classList.add('active');
+                        category.querySelector('.story-list').classList.add('active');
+                    } else if (!searchTerm) {
+                        category.querySelector('.category-header').classList.remove('active');
+                        category.querySelector('.story-list').classList.remove('active');
+                    }
+                });
+            });
+            
+            window.jumpToStory = function(storyId) {
+                const story = document.getElementById(storyId);
+                if (story) {
+                    const category = story.closest('.category');
+                    const header = category.querySelector('.category-header');
+                    const storyList = category.querySelector('.story-list');
+                    
+                    categoryHeaders.forEach(h => h.classList.remove('active'));
+                    document.querySelectorAll('.story-list').forEach(l => l.classList.remove('active'));
+                    
+                    header.classList.add('active');
+                    storyList.classList.add('active');
+                    
+                    setTimeout(() => {
+                        story.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        story.style.animation = 'highlight 1s ease-in-out';
+                    }, 100);
+                }
+            };
+        });
+    </script>
+</body>
+</html>
