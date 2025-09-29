@@ -228,7 +228,7 @@
         
         .question-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 10px;
             margin-top: 15px;
         }
@@ -236,14 +236,15 @@
         .question-btn {
             background: white;
             border: 2px solid #ffc107;
-            padding: 12px 16px;
+            padding: 14px 16px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             color: #495057;
             transition: all 0.2s;
             text-align: left;
+            line-height: 1.4;
         }
         
         .question-btn:hover {
@@ -264,6 +265,7 @@
         <div class="header">
             <h1>🎯 Interview Cheat Sheet</h1>
             <p>Quick reference for behavioral questions • Click to expand • Search to find</p>
+            <button onclick="resetView()" style="margin-top: 15px; background: white; color: #667eea; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s;">🔄 Reset View</button>
         </div>
         
         <div class="search-box">
@@ -273,24 +275,38 @@
         <div class="content">
             <div class="about-section">
                 <h2>About Me - Quick Intro</h2>
-                <p><strong>Based in NYC</strong> • Left Apple to join Cock & Tails (missed the team/healthcare vibe) • Started as TikTok Strategist, fell in love with marketing • Grew to Sr Marketing Strategist (helped drive 600M views in organic/paid) • Then Marketing Manager roles focusing on content, creative services, and strategy • At Exploding Kittens: overhauled entire marketing approach - expanded beyond search into OOH, CTV, affiliates • Shifted owned channels (SMS/Email) to be more profitable and drive LTV</p>
+                <p><strong>Based in NYC</strong> • Left Apple to join Cock & Tails (missed the team/healthcare vibe) • Started as TikTok Strategist, fell in love with marketing • Grew to Sr Marketing Strategist • Then Marketing Manager roles focusing on content, creative services, and strategy • At Exploding Kittens: overhauled entire marketing approach (helped drive 600M views in organic/paid) - expanded beyond search into OOH, CTV, affiliates • Shifted owned channels (SMS/Email) to be more profitable and drive LTV</p>
             </div>
 
             <div class="quick-reference">
-                <h2>⚡ Quick Question Finder</h2>
-                <p style="font-size: 13px; color: #6c757d; margin-bottom: 15px;">Click any question to jump directly to the best example</p>
+                <h2>⚡ Interview Question Matcher</h2>
+                <p style="font-size: 13px; color: #6c757d; margin-bottom: 15px;">Based on Relatable's evaluation rubric - click to jump to your best example</p>
                 <div class="question-grid">
-                    <button class="question-btn" onclick="jumpToStory('growth-strategy')">Tell me about building a strategy from scratch</button>
-                    <button class="question-btn" onclick="jumpToStory('tableau-attribution')">How do you measure marketing effectiveness?</button>
-                    <button class="question-btn" onclick="jumpToStory('ctv-easter')">Tell me about testing a new channel</button>
-                    <button class="question-btn" onclick="jumpToStory('lost-cat')">Time you had to pivot quickly</button>
-                    <button class="question-btn" onclick="jumpToStory('game-name')">Influence without authority</button>
-                    <button class="question-btn" onclick="jumpToStory('executive-storytelling')">How do you communicate with executives?</button>
-                    <button class="question-btn" onclick="jumpToStory('creative-checklist')">How do you build systems/processes?</button>
-                    <button class="question-btn" onclick="jumpToStory('sizzle-reel')">Tell me about managing a project</button>
-                    <button class="question-btn" onclick="jumpToStory('survivor-ctv')">Upper-funnel marketing example</button>
-                    <button class="question-btn" onclick="jumpToStory('cohort-analysis')">How do you segment customers?</button>
-                    <button class="question-btn" onclick="jumpToStory('beyond-google')">Expanding into new platforms</button>
+                    <button class="question-btn" onclick="jumpToStory('growth-strategy')">📊 Growth Strategy & Forecasting<br><span style="font-size: 11px; opacity: 0.8;">Driver-tree thinking, baselines, testing framework</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('ctv-easter')">🚀 Channel Diversification<br><span style="font-size: 11px; opacity: 0.8;">Structured experimentation, scale/kill criteria</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('survivor-ctv')">📈 Full-Funnel & Upper-Funnel<br><span style="font-size: 11px; opacity: 0.8;">Frequency management, lift studies</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('beyond-google')">🔍 Search Marketing (SEM/SEO)<br><span style="font-size: 11px; opacity: 0.8;">Query-level economics, multi-platform</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('tableau-attribution')">🎯 Attribution & Measurement<br><span style="font-size: 11px; opacity: 0.8;">Geo holdouts, incrementality tests</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('cohort-analysis')">📉 Analytical Rigor<br><span style="font-size: 11px; opacity: 0.8;">Cohort & payback views</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('ctv-easter')">💡 Channel Innovation<br><span style="font-size: 11px; opacity: 0.8;">Repeatable experimentation framework</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('sizzle-reel')">✅ Execution Excellence (PM)<br><span style="font-size: 11px; opacity: 0.8;">Clear DRI/owners, critical path</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('game-name')">🤝 Cross-Functional Collaboration<br><span style="font-size: 11px; opacity: 0.8;">Influences without authority</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('lost-cat')">🔄 Adaptability<br><span style="font-size: 11px; opacity: 0.8;">Hypothesis-driven pivots</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('customer-centric')">👥 Customer-Centric Mindset<br><span style="font-size: 11px; opacity: 0.8;">Leverages surveys, search intent</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('creative-checklist')">👔 Leadership & Influence<br><span style="font-size: 11px; opacity: 0.8;">Builds durable systems/processes</span></button>
+                    
+                    <button class="question-btn" onclick="jumpToStory('executive-storytelling')">💬 Communication Skills<br><span style="font-size: 11px; opacity: 0.8;">Exec-level storytelling</span></button>
                 </div>
             </div>
 
@@ -318,6 +334,10 @@
                             <div class="story-label">Result</div>
                             <div class="story-text">600M organic views. CTV ads with 10% lift. Made channels more profitable. Built trusted, repeatable system tied to business goals.</div>
                         </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Set baselines first (daily sales control), defined clear metrics before spending. <strong>Leading indicator:</strong> CPV hitting target ($0.02) told me to scale vs pivot. <strong>What I'd change:</strong> Would have built the framework even faster - spent too long on influencer before pivoting to CTV.</div>
+                        </div>
                     </div>
 
                     <div class="story" id="tableau-attribution" data-keywords="tableau attribution measurement correlation causation checklist analytics sales lift">
@@ -338,6 +358,10 @@
                             <div class="story-label">Reflection</div>
                             <div class="story-text">Moved from correlation guessing to reliable attribution model. Gave leadership confidence with fact-based reporting. Allowed us to scale strategies with trust.</div>
                         </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Built comprehensive checklist before attributing any lift - checked in-store factors, organic spikes, retail patterns. <strong>Leading indicator:</strong> When layered factors in Tableau isolated true drivers vs noise. <strong>What I'd change:</strong> Would have implemented this system day one instead of relying on junior strategist's initial correlation assumptions.</div>
+                        </div>
                     </div>
 
                     <div class="story" id="cohort-analysis" data-keywords="cohort payback email viral CRM LTV retention acquisition AOV">
@@ -357,6 +381,10 @@
                         <div class="story-section">
                             <div class="story-label">Takeaway</div>
                             <div class="story-text">Treat viral cohorts as acquisition drivers, email cohorts as retention + LTV expansion drivers. At Relatable, email wasn't really used this way - missed opportunity that reshaped my CRM approach.</div>
+                        </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Tracked both cohorts separately from day one with different goals/metrics. <strong>Leading indicator:</strong> Email repeat purchase rate vs viral one-time buyer rate showed clear divergence early. <strong>What I'd change:</strong> Would have recognized this pattern earlier at Relatable - could have built email as retention driver sooner.</div>
                         </div>
                     </div>
                 </div>
@@ -382,6 +410,10 @@
                             <div class="story-label">Result</div>
                             <div class="story-text">US sales = 10% lift YoY vs UK holdout. Clear proof CTV drove incremental seasonal sales. Scaled with 2x-3x budget increase, close monitoring. Now pushing across YouTube as well.</div>
                         </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Used UK as geo holdout (control) - clean test design before committing. <strong>Leading indicator:</strong> 10% lift YoY in US vs UK showed it was working within 2 weeks. <strong>What I'd change:</strong> Would have tested CTV before influencer campaign - learned influencer didn't hit metrics first, could have saved time/budget.</div>
+                        </div>
                     </div>
 
                     <div class="story" id="survivor-ctv" data-keywords="survivor upper funnel CBS Jeff Probst awareness frequency partnership TV">
@@ -402,6 +434,10 @@
                             <div class="story-label">Reflection</div>
                             <div class="story-text">Learned frequency management looks different depending on context. Not about multiple touchpoints - about single, high-impact placement.</div>
                         </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Set sales baseline before partnership, accepted limited frequency upfront as part of test design. <strong>Leading indicator:</strong> Immediate Amazon sales spike every time interstitial aired - clear, repeatable pattern. <strong>What I'd change:</strong> Would negotiate for more frequency in contract if possible, but learned one high-quality placement can be more effective than many low-quality ones.</div>
+                        </div>
                     </div>
 
                     <div class="story" id="beyond-google" data-keywords="SEO search Pinterest TikTok Reddit Amazon discovery platforms optimization">
@@ -417,6 +453,10 @@
                         <div class="story-section">
                             <div class="story-label">Result</div>
                             <div class="story-text">Early results show when we align creative to how people naturally search, discoverability improves significantly.</div>
+                        </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Defined platform-specific metrics before testing (pins/saves for Pinterest, upvotes for Reddit, etc.). <strong>Leading indicator:</strong> Discoverability metrics showed improvement when content matched platform search behavior. <strong>What I'd change:</strong> Would have started multi-platform SEO earlier - realized too late that Google is only one search destination.</div>
                         </div>
                     </div>
                 </div>
@@ -446,6 +486,10 @@
                             <div class="story-label">Reflection</div>
                             <div class="story-text">Had to be adaptable under budget constraints. Learned value of testing big ideas at smaller scale first. Reinforced ability to balance creativity with ROI focus.</div>
                         </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Pivoted to digital to test creative interest at near-zero cost before full OOH spend. <strong>Leading indicator:</strong> Strong digital engagement proved concept viability for future pitch. <strong>What I'd change:</strong> Would have planned for budget flexibility/tariff risk upfront - build contingency plans into initial proposal.</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -470,6 +514,10 @@
                             <div class="story-label">Result</div>
                             <div class="story-text">Changed a few titles and it's now general strategy going forward.</div>
                         </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Researched competitor data and surveyed target audience (not our internal assumptions). <strong>Leading indicator:</strong> Survey results showing clear preference for shorter, punchier names gave concrete proof. <strong>What I'd change:</strong> Would have brought data/surveys earlier in discussion - built business case first before suggesting changes to product team.</div>
+                        </div>
                     </div>
 
                     <div class="story" id="executive-storytelling" data-keywords="communication executive storytelling ROI leadership trust jargon sales data">
@@ -490,6 +538,10 @@
                             <div class="story-label">Reflection</div>
                             <div class="story-text">Learned it's about translating complexity into clarity. Success = showing the forest, not just the trees - big business wins, not isolated metrics. Built lasting trust with leadership who now see marketing as growth driver, not cost center.</div>
                         </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Built narratives around business case (costs, lifts, ROI) not marketing jargon. <strong>Leading indicator:</strong> Execs started asking for more marketing initiatives showed trust building. <strong>What I'd change:</strong> Would have established this communication style from day one - wasted early months using industry jargon they didn't understand.</div>
+                        </div>
                     </div>
 
                     <div class="story" id="creative-checklist" data-keywords="leadership creative checklist system evaluation ROI process training team">
@@ -509,6 +561,10 @@
                         <div class="story-section">
                             <div class="story-label">Reflection</div>
                             <div class="story-text">Learned durable systems don't always mean dashboards - can be simple, repeatable processes. Checklist created shared language for creative performance across org.</div>
+                        </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Defined baseline sales, lift metrics, KPI thresholds (CPV, margins) before evaluating any creative. <strong>Leading indicator:</strong> Team adoption of checklist and shift from "this went viral" to "did this drive sales?" <strong>What I'd change:</strong> Would have implemented system earlier - spent months with inconsistent evaluation before building checklist.</div>
                         </div>
                     </div>
                 </div>
@@ -534,6 +590,10 @@
                             <div class="story-label">Result</div>
                             <div class="story-text">Went from missing deadlines to consistently hitting them, even under tight timelines. Reels improved dramatically - using experience from PDPs and CTV, shifted creative toward FOMO-driven, clear explanations that made buyers want to pick up games, even with lower production budgets.</div>
                         </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Mapped dependencies and set clear DRIs before starting production. <strong>Leading indicator:</strong> Check-in milestones hitting on time showed system working. <strong>What I'd change:</strong> Would have implemented post-mortems from batch one - took a few rounds to optimize the process fully.</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -544,11 +604,15 @@
                     <span class="arrow">▼</span>
                 </div>
                 <div class="story-list">
-                    <div class="story" data-keywords="customer surveys feedback audience research rules engagement">
+                    <div class="story" id="customer-centric" data-keywords="customer surveys feedback audience research rules engagement">
                         <div class="story-title">Customer-Centric Mindset</div>
                         <div class="story-section">
                             <div class="story-label">Approach</div>
                             <div class="story-text">Actively look for feedback from audience in surveys. Stay tuned into what's working and what's not - for example, game rules clarity. Always testing and iterating based on real customer behavior and preferences.</div>
+                        </div>
+                        <div class="story-section" style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-top: 10px;">
+                            <div class="story-label" style="color: #0066cc;">Follow-Up Prep</div>
+                            <div class="story-text" style="font-size: 13px;"><strong>Validation:</strong> Use surveys and customer data before making decisions (e.g., game naming). <strong>Leading indicator:</strong> Customer feedback showing improved clarity/engagement. <strong>What I'd change:</strong> Would integrate customer research loops into every initiative from the start - sometimes made assumptions first, validated second.</div>
                         </div>
                     </div>
                 </div>
@@ -645,6 +709,14 @@
                         story.style.animation = 'highlight 1s ease-in-out';
                     }, 100);
                 }
+            };
+            
+            window.resetView = function() {
+                categoryHeaders.forEach(h => h.classList.remove('active'));
+                document.querySelectorAll('.story-list').forEach(l => l.classList.remove('active'));
+                searchInput.value = '';
+                stories.forEach(story => story.style.display = 'block');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             };
         });
     </script>
